@@ -1,0 +1,6 @@
+{
+  "version": "v1.0.0",
+  "release_date": "2026-08-07",
+  "changelog": "- Cải tiến kiến trúc TokenVector siêu tốc\n- Tích hợp License JetBrains\n- Tối ưu hóa dung lượng đóng gói",
+  "download_url": "https://codegraph.lemonsqueezy.com"
+}
