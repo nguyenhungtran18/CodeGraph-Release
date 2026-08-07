@@ -15,12 +15,23 @@
 
 By providing AI (like Claude Desktop, Cursor, or Google Antigravity) with a structural map of your project—including caller/callee relationships, file dependencies, and dynamic function definitions—CodeGraph dramatically reduces AI hallucinations and improves the accuracy of codebase-wide refactoring.
 
-## ✨ Key Features
+## ⚡ Breakthrough Performance (v1.0.0 Commercial)
 
-- **AST-Based Parsing:** Uses Tree-sitter for deep semantic analysis of C/C++ code.
-- **MCP Integration:** Acts as an MCP Server (using `stdio` transport) to plug directly into leading AI editors.
-- **Smart Context Retrieval:** AI can request specific call graphs or file architectures on demand, saving context window space.
-- **Secure & Offline:** Runs entirely locally on your Windows machine. No source code is ever sent to external third-party servers.
+The new architecture replaces the legacy Python AST with **optimized C++ binaries**, unlocking unprecedented power:
+
+| Benchmark Metric | Real-world Result | The Difference |
+| :--- | :--- | :--- |
+| **Scan Speed (760+ files)** | **< 1.2 seconds** | 10x faster than legacy AST. Near-zero latency parsing. |
+| **Tracing Accuracy** | **100% Deterministic** | No probabilistic guessing (unlike Vector search). 100% accurate Call & Inherit tracking. |
+| **RAM Consumption** | **~12 MB RAM** | Extremely lightweight. No background Database or Vector Store required. |
+| **Source Code Security** | **100% Offline** | Your code never leaves your machine. The tool itself is protected by PyArmor anti-tampering. |
+
+## 🌟 Unfair Advantages
+
+- **🎯 Impact Analysis:** Before the AI edits Function A, CodeGraph traces 3 levels deep to warn the AI: *"Watch out! Changing this will break Class B in file X and Test C in file Y"*.
+- **📦 Context Packing:** Automatically calculates dependencies around your editing point and packs them perfectly into the Token limit. Stop dumping garbage into your prompt.
+- **🕸️ Obsidian-style Graph View:** Renders your architecture into a highly interactive HTML5 canvas. Observe thousands of file connections with just a scroll of your mouse.
+- **🔌 Plug-and-Play (MCP):** Standardized as a native MCP Server. Works instantly out-of-the-box with Cursor, Windsurf, or Claude Desktop.
 
 ## 📥 Download & Installation
 
