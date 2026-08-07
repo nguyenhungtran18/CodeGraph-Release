@@ -26,7 +26,7 @@ The new architecture replaces the legacy Python AST with **optimized C++ binarie
 | **RAM Consumption** | **~12 MB RAM** | Extremely lightweight. No background Database or Vector Store required. |
 | **Source Code Security** | **100% Offline** | Your code never leaves your machine. The tool itself is protected by PyArmor anti-tampering. |
 
-## 🌟 Unfair Advantages
+## 🌟 Advantages
 
 - **🎯 Impact Analysis:** Before the AI edits Function A, CodeGraph traces 3 levels deep to warn the AI: *"Watch out! Changing this will break Class B in file X and Test C in file Y"*.
 - **📦 Context Packing:** Automatically calculates dependencies around your editing point and packs them perfectly into the Token limit. Stop dumping garbage into your prompt.
