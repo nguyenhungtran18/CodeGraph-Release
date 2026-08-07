@@ -1,5 +1,4 @@
 <div align="center">
-  --<img src="https://raw.githubusercontent.com/nguyenhungtran18/CodeGraph-Release/main/media/codegraph_logo.png" alt="CodeGraph Logo" width="200" />
   <h1>CodeGraph MCP</h1>
   <p><em>The Ultimate Codebase Context Engine for AI Assistants (Cursor, Claude, Antigravity)</em></p>
   
