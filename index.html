@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGraph - The Ultimate AI Context Engine</title>
+    <style>
+        :root {
+            --bg-primary: #09090b;
+            --bg-secondary: #18181b;
+            --bg-tertiary: #27272a;
+            --text-primary: #f4f4f5;
+            --text-secondary: #a1a1aa;
+            --border-color: #3f3f46;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --accent-purple: #8b5cf6;
+            --accent-orange: #f59e0b;
+            --accent-red: #ef4444;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.7;
+            padding: 40px 20px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            color: #ffffff;
+            margin-bottom: 16px;
+            letter-spacing: -0.05em;
+            background: linear-gradient(to right, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .badge {
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .badge-blue { background-color: rgba(59, 130, 246, 0.2); color: #60a5fa; border-color: rgba(59, 130, 246, 0.5); }
+        .badge-green { background-color: rgba(16, 185, 129, 0.2); color: #34d399; border-color: rgba(16, 185, 129, 0.5); }
+        .badge-orange { background-color: rgba(245, 158, 11, 0.2); color: #fbbf24; border-color: rgba(245, 158, 11, 0.5); }
+        .badge-purple { background-color: rgba(139, 92, 246, 0.2); color: #a78bfa; border-color: rgba(139, 92, 246, 0.5); }
+
+        .lead {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-top: 48px;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--text-primary);
+            margin-top: 32px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        p {
+            margin-bottom: 16px;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin-bottom: 24px;
+            padding-left: 24px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: var(--text-primary);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 24px 0;
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 16px 20px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: rgba(255,255,255,0.03);
+            color: var(--text-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        code {
+            font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+            background-color: rgba(255,255,255,0.1);
+            color: #e4e4e7;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            overflow-x: auto;
+            margin-bottom: 24px;
+        }
+
+        pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #a78bfa;
+        }
+
+        .highlight-box {
+            background: linear-gradient(145deg, var(--bg-secondary) 0%, rgba(59, 130, 246, 0.05) 100%);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-blue);
+            padding: 24px;
+            margin: 32px 0;
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--text-primary);
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.1s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin: 32px 0;
+        }
+
+        .feature-card {
+            background-color: var(--bg-secondary);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card h4 {
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>CodeGraph</h1>
+        <div class="badges">
+            <span class="badge badge-blue">C/C++ TokenVector Core</span>
+            <span class="badge badge-green">100% Local-First</span>
+            <span class="badge badge-orange">MCP Native for Cursor</span>
+            <span class="badge badge-purple">Zero-Token Indexing</span>
+        </div>
+        <p class="lead">
+            The ultimate architectural vision for AI Coding Assistants (Cursor, Claude, Windsurf). Blazing fast and strictly local-first.
+        </p>
+    </div>
+
+    <div class="highlight-box">
+        <strong>CodeGraph</strong> completely solves the biggest barrier for AI today: "Project Structural Blindness". 
+        Instead of burning cash on Vector Embeddings or syncing source code to the Cloud, CodeGraph uses lightning-fast C/C++ binaries (TokenVector) to dissect your codebase directly on your machine. In just seconds, it builds a 100% deterministic relationship graph and injects it directly into your AI via the MCP protocol.
+    </div>
+
+    <h2>⚡ Breakthrough Performance (v1.0.0 Commercial)</h2>
+    <p>The new architecture replaces the legacy Python AST with <strong>18 optimized C++ binaries</strong>, unlocking unprecedented power:</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Benchmark Metric</th>
+                <th>Real-world Result</th>
+                <th>The Difference</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Scan Speed (760+ files)</strong></td>
+                <td><strong>&lt; 1.2 seconds</strong></td>
+                <td>10x faster than legacy AST. Near-zero latency parsing.</td>
+            </tr>
+            <tr>
+                <td><strong>Tracing Accuracy</strong></td>
+                <td><strong>100% Deterministic</strong></td>
+                <td>No probabilistic guessing (unlike Vector search). 100% accurate Call & Inherit tracking.</td>
+            </tr>
+            <tr>
+                <td><strong>RAM Consumption</strong></td>
+                <td><strong>~12 MB RAM</strong></td>
+                <td>Extremely lightweight. No background Database or Vector Store required.</td>
+            </tr>
+            <tr>
+                <td><strong>Source Code Security</strong></td>
+                <td><strong>100% Offline</strong></td>
+                <td>Your code never leaves your machine. The tool itself is protected by PyArmor anti-tampering.</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>🚀 Unfair Advantages</h2>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h4>🎯 Impact Analysis</h4>
+            <p>Before the AI edits Function A, CodeGraph traces 3 levels deep to warn the AI: "Watch out! Changing this will break Class B in file X and Test C in file Y".</p>
+        </div>
+        <div class="feature-card">
+            <h4>📦 Context Packing</h4>
+            <p>Automatically calculates dependencies around your editing point and packs them perfectly into the Token limit. Stop dumping garbage into your prompt.</p>
+        </div>
+        <div class="feature-card">
+            <h4>🕸️ Obsidian-style Graph View</h4>
+            <p>Renders your architecture into a highly interactive HTML5 canvas. Observe thousands of file connections with just a scroll of your mouse.</p>
+        </div>
+        <div class="feature-card">
+            <h4>🔌 Plug-and-Play (MCP)</h4>
+            <p>Standardized as a native MCP Server. Works instantly out-of-the-box with Cursor, Windsurf, or Claude Desktop.</p>
+        </div>
+    </div>
+
+    <h2>💻 Installation & Setup</h2>
+    <p>CodeGraph is packaged as a standalone executable (`.exe`). No complex installation, no Python configuration required.</p>
+    
+    <h3>Cursor / Windsurf Integration</h3>
+    <p>Go to Settings > MCP Servers > Add New:</p>
+    <ul>
+        <li><strong>Name:</strong> CodeGraph</li>
+        <li><strong>Type:</strong> command</li>
+        <li><strong>Command:</strong> <code>"C:\Path\To\CodeGraph-MCP.exe"</code></li>
+    </ul>
+
+    <h3>Claude Desktop Integration</h3>
+    <p>Add the following snippet to your <code>%APPDATA%\Claude\claude_desktop_config.json</code>:</p>
+<pre><code>{
+  "mcpServers": {
+    "CodeGraph": {
+      "command": "C:\\Path\\To\\CodeGraph-MCP.exe"
+    }
+  }
+}</code></pre>
+
+    <h2>🛒 Pricing & Licensing</h2>
+    <p>CodeGraph is a commercial software that comes with an automatic <strong>30-DAY FREE TRIAL</strong>. After 30 days, a valid license is required to continue.</p>
+    
+    <ul>
+        <li><strong>JetBrains-style Model (Perpetual Fallback):</strong> Just <strong>$15/year</strong>. You perpetually own the exact version available at the time of purchase, plus 12 months of free updates.</li>
+        <li><strong>Smart Updates:</strong> Built-in update checker via GitHub. Never miss a critical new feature.</li>
+        <li><strong>Anti-Tamper Protection:</strong> Distributed with military-grade obfuscation to protect intellectual property.</li>
+    </ul>
+
+    <div style="text-align: center; margin-top: 40px; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+        <a href="https://github.com/nguyenhungtran18/CodeGraph-Release/releases/download/v1.0.0/CodeGraph_v1.0.0_Secure.zip" class="cta-button" style="background-color: var(--accent-blue); color: #fff; border: 1px solid var(--accent-blue);">Download for Free (30-day trial)</a>
+        <a href="https://codegraph.lemonsqueezy.com" class="cta-button" style="background-color: transparent; border: 1px solid var(--text-primary); color: var(--text-primary);">Buy License Key ($15)</a>
+    </div>
+
+</div>
+
+</body>
+</html>
