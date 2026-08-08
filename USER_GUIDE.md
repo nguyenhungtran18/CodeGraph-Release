@@ -1,106 +1,100 @@
-# CodeGraph User Guide
+# Hướng Dẫn Sử Dụng CodeGraph v2.0.0 (TokenVector Architecture)
 
-Welcome to CodeGraph! CodeGraph is a blazing-fast, C++ powered static analysis engine that maps out your entire codebase and feeds this architectural knowledge directly into your favorite AI Editors (Cursor, Claude, Windsurf, etc.) via the Model Context Protocol (MCP).
-
-This guide will walk you through how to use CodeGraph to supercharge your AI coding assistant.
+Chào mừng bạn đến với **CodeGraph v2.0.0**! CodeGraph là động cơ phân tích tĩnh cấu trúc mã nguồn siêu tốc được xây dựng trên nền tảng **TokenVector (.tkv)**. Hệ thống quét toàn bộ kiến trúc dự án và cung cấp tri thức liên kết hàm/lớp thời gian thực cho các AI Editor (Cursor, Antigravity, Windsurf, Claude Desktop, VSCode) thông qua giao thức **Model Context Protocol (MCP)**.
 
 ---
 
-## 1. Initial Setup & Licensing
+## 1. Cấu Trúc Gói Đóng Gói Phát Hành (`CodeGraph2.0_Release`)
 
-### Unzipping the Application
-Extract the downloaded `CodeGraph_v1.0.0_Secure.zip` to a safe location on your computer (e.g., `C:\CodeGraph`). 
+Bản phát hành v2.0.0 được đóng gói độc lập chuẩn hóa nhị phân (Binary-Only Release):
 
-### Activating the License
-Before scanning any projects, you need to activate your license or start your free 30-day trial.
-
-1. Double-click the **`Codegraph.exe`** file.
-2. A terminal window will open.
-3. **If you have a License Key:** Paste your key when prompted and press Enter.
-4. **To start the 30-day Free Trial:** Simply press **Enter** without typing anything to bypass the prompt and start your trial.
-
-*(Note: Your license state is securely saved to your system's `%APPDATA%` folder. You will not need to enter it again).*
-
----
-
-## 2. Scanning a Project (Generating the Graph)
-
-Before your AI can understand your project, CodeGraph needs to scan it.
-
-1. Double-click **`Codegraph.exe`** to launch the interactive prompt.
-2. **Project Name:** Enter a unique name for your project (e.g., `MyApp`).
-3. **Project Path:** Enter the absolute path to your project folder (e.g., `C:\Work\MyApp`).
-4. CodeGraph's C++ engine will execute a 5-step pipeline:
-   - Scanning Python files
-   - Generating Import & Type inference graphs
-   - Analyzing Node Metadata
-   - Running the Architectural Reviewer
-   - Creating a Version Fingerprint
-5. Once complete, a `graph/` folder is generated inside your project, and a local HTML visualization map is created for you to view in your browser.
-
-> [!TIP]
-> **When to rescan?** You should re-run `Codegraph.exe` whenever you make massive structural changes to your project (like renaming core files, restructuring folders, or adding many new modules). For small daily coding edits, you do not need to rescan immediately.
+- 🚀 **`CodeGraph_v2_Launcher.bat`**: Tập lệnh 1-Click khởi chạy quét mã nguồn trên Windows.
+- 📝 **`README.md` & `USER_GUIDE.md`**: Tài liệu hướng dẫn cài đặt và vận hành hệ thống.
+- ⚙️ **`.env.example`**: File cấu hình biến môi trường mẫu.
+- 🌐 **`1.UI/GraphView/`**:
+  - `graph_visualization.html`: Giao diện trực quan hóa đồ thị 3D tương tác D3.js.
+  - `codegraph_data.js`: Tập tin dữ liệu chứa toàn bộ các Nút (Nodes) và Cạnh (Edges) liên kết.
+- 💻 **`2.code/`**:
+  - `codegraph_v2.exe`: Động cơ điều phối quét đồ thị tĩnh chính (Orchestrator).
+  - `CodeGraph_MCP.exe`: Server MCP kết nối thời gian thực với AI Editor.
+  - `master_key_manager.exe`: Trình quản lý Master Keys offline.
+  - `tools/`: Bộ 11 công cụ nhị phân phân tích tĩnh (`pytok.exe`, `impgraph.exe`, `typegraph.exe`, `layers.exe`, `nodemeta.exe`, `defmeta.exe`, `graphreview.exe`, `graphstale.exe`, `ctxpack.exe`, `impact.exe`, `visualize_graph.exe`).
+  - `extensions/`: Bộ công cụ mở rộng nhị phân (`dynamic_call_scanner.exe`, `treesitter_parser.exe`, `test_read.exe`).
 
 ---
 
-## 3. Integrating with AI Editors (MCP Server)
+## 2. Bản Quyền & Chế Độ Dùng Thử 30 Ngày (30-Day Free Trial)
 
-To let your AI interact with the generated graph, you must configure your AI editor to run **`CodeGraph-MCP.exe`** as a background server.
+CodeGraph v2.0 hỗ trợ đầy đủ 3 chế độ bản quyền linh hoạt:
 
-> [!TIP]
-> **Quick Auto-Config:** You can double-click **`CodeGraph-MCP.exe`** at any time. It will open a console displaying the exact copy-paste configuration paths tailored for your machine!
+1. **Chế Độ Dùng Thử 30 Ngày Miễn Phí (30-Day Free Trial):**
+   - Khi chạy ứng dụng lần đầu tiên mà chưa có License Key, hệ thống **tự động kích hoạt 30 ngày dùng thử miễn phí (`CG-FREE-TRIAL-30DAYS`)**.
+   - Dữ liệu dùng thử được lưu bảo mật tại `%APPDATA%\CodeGraph\license_state.json`.
+2. **Khóa Thương Mại Mua Trực Tuyến:** Tự động kích hoạt trực tuyến qua cổng Lemon Squeezy API khi mua hàng tại:
+   👉 **https://codegraph.lemonsqueezy.com/checkout/buy/701442e2-6153-408a-9d39-1eb1456538a3**
+3. **Kích Hoạt Offline Master Keys:**
+   - Nếu có Marter Key hãy Nhập mã Master Key (Ví dụ: `CG-MASTER-KEY-001-***`).
+   - Sử dụng công cụ `2.code/master_key_manager.exe`
+   - Master Key cho phép sử dụng vĩnh viễn không phụ thuộc Internet (Hạn sử dụng: `2099-12-31`).
 
-### For Cursor / Windsurf / Roo Code / Cline
-1. Open your editor's **Settings**.
-2. Navigate to **Features** > **MCP Servers** > Click **Add New**.
-3. Fill in the fields:
-   - **Name:** `CodeGraph`
-   - **Type:** `command`
-   - **Command:** `C:\Path\To\Your\CodeGraph-MCP.exe` *(Use the actual path on your PC)*
-4. Click **Save**.
+---
 
-### For Claude Desktop
-1. Open your configuration file at: `%APPDATA%\Claude\claude_desktop_config.json`
-2. Add the following to the `mcpServers` block:
+## 3. Quét Dự Án & Trực Quan Hóa Đồ Thị 3D
+
+Để tạo hoặc cập nhật bản đồ đồ thị cho dự án:
+
+1. Click đúp vào file **`CodeGraph_v2_Launcher.bat`**.
+2. Hệ thống TokenVector Engine tự động thực thi quy trình 5 bước:
+   - Quét danh mục tập tin mã nguồn.
+   - Sinh đồ thị liên kết `import` và cuộc gọi hàm/lớp (`calls`).
+   - Phân tích siêu dữ liệu (Metadata) & cấu trúc tầng kiến trúc.
+   - Kiểm duyệt toàn vẹn đồ thị (Architectural Reviewer).
+   - Đóng gói giao diện HTML 3D tại **`1.UI/GraphView/graph_visualization.html`**.
+3. Mở file `1.UI/GraphView/graph_visualization.html` bằng trình duyệt web để xem trực tiếp sơ đồ vật lý tương tác 3D.
+
+---
+
+## 4. Tích Hợp MCP Server Vào AI Editor
+
+Để AI Assistant (Cursor, Antigravity, Windsurf, Claude Desktop) đọc được dữ liệu đồ thị:
+
+### Cấu hình `mcp_config.json` (Google Antigravity / VSCode / Cursor / Windsurf):
 ```json
-"mcpServers": {
-  "CodeGraph": {
-    "command": "C:\\Path\\To\\Your\\CodeGraph-MCP.exe"
+{
+  "mcpServers": {
+    "CodeGraph": {
+      "command": "C:\\CodeGraph2.0_Release\\2.code\\tools\\pytok.exe",
+      "args": [
+        "C:\\CodeGraph2.0_Release\\2.code\\CodeGraph_MCP.exe"
+      ]
+    }
   }
 }
 ```
-3. Restart Claude Desktop.
+
+### Cấu hình Claude Desktop (`%APPDATA%\Claude\claude_desktop_config.json`):
+```json
+{
+  "mcpServers": {
+    "CodeGraph": {
+      "command": "C:\\CodeGraph2.0_Release\\2.code\\tools\\pytok.exe",
+      "args": [
+        "C:\\CodeGraph2.0_Release\\2.code\\CodeGraph_MCP.exe"
+      ]
+    }
+  }
+}
+```
 
 ---
 
-## 4. How to Use CodeGraph with your AI
+## 5. Các Công Cụ MCP Phục Vụ Lập Trình Viên & AI
 
-Once configured, your AI Editor will automatically detect CodeGraph's tools. You do not need to memorize commands—just talk to your AI naturally! 
+Sau khi cắm MCP Server, AI Editor sẽ tự động sử dụng các tool sau:
 
-Here are some examples of what you can ask your AI:
-
-### View Available Projects
-> *"What projects are currently registered in CodeGraph?"*
-> 
-> The AI will use the `list_projects` tool to check which projects have been scanned.
-
-### Get Optimal Context (Avoiding Token Bloat)
-> *"I want to refactor `auth_manager.py` in the `MyApp` project. Get the optimal context for this file."*
-> 
-> The AI will use the `get_optimal_context` tool. Instead of reading your entire repo, CodeGraph will inject a surgical payload of only the classes, functions, and imports that directly interact with `auth_manager.py`.
-
-### Analyze Architectural Impact
-> *"If I change the return type of `validate_token()` in `auth_manager.py`, what other files in the project will break?"*
->
-> The AI will use the `analyze_impact` tool. CodeGraph will trace the call edges and import edges to provide a list of all upstream dependencies, ensuring the AI fixes all related files.
+1. **`list_projects`**: Liệt kê danh sách các dự án đã được CodeGraph quét.
+2. **`get_optimal_context`**: Trích xuất ngữ cảnh tối ưu theo hạn mức Token, giúp AI chỉ đọc đúng các hàm/lớp liên quan mà không lãng phí token.
+3. **`analyze_impact`**: Phân tích rủi ro tác động ngược dây chuyền. Cảnh báo danh sách các file và unit test bị ảnh hưởng ở Level 1 & Level 2 trước khi sửa mã nguồn.
 
 ---
-
-## 5. Troubleshooting
-
-- **AI says "Graph is Stale":** This means your codebase has changed significantly since your last scan. Close your editor, double-click `Codegraph.exe`, and scan the project again.
-- **AI says "License Expired":** Your 30-day trial has ended. The MCP server will automatically shut down to prevent hanging your AI. To fix this, buy a key at https://codegraph.lemonsqueezy.com, double-click `Codegraph.exe` (or `CodeGraph-MCP.exe`), and paste your key.
-- **Cannot find ctxpack.exe / impact.exe:** Ensure you extracted the *entire* ZIP file, not just the `.exe` files. The `tools/` folder must remain in the same directory as the executables.
-
----
-*CodeGraph - Empowering AI with Deterministic Architectural Context.*
+© 2026 CodeGraph Team. All Rights Reserved. TokenVector Engine Technology.
