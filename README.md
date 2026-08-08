@@ -48,7 +48,7 @@ Nhờ việc cung cấp bản đồ liên kết 100% chính xác (cuộc gọi h
 ---
 
 ## 📥 Mua Bản Quyền & Tải Về
-
+👉 **[Tải về](https://github.com/nguyenhungtran18/CodeGraph-Release/releases/download/v2.0.0/CodeGraph2.0_Release.zip)**
 👉 **[Mua License Key Chính Thức trên Lemon Squeezy](https://codegraph.lemonsqueezy.com/checkout/buy/701442e2-6153-408a-9d39-1eb1456538a3)**
 
 *(Mỗi License Key hỗ trợ kích hoạt đồng thời trên 2 thiết bị).*
