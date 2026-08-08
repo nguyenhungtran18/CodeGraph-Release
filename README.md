@@ -1,4 +1,3 @@
-<img width="1311" height="673" alt="screenshot_graph" src="https://github.com/user-attachments/assets/2e441070-c61d-48f7-85c8-062962ba5857" />
 <div align="center">
   <h1>CodeGraph v2.0 (TokenVector Architecture)</h1>
   <p><em>The Ultimate Deterministic Architecture & Context Engine for AI Assistants (Cursor, Antigravity, Windsurf, Claude Desktop, VSCode)</em></p>
@@ -13,8 +12,8 @@
 
 ## 🖼️ Preview: 3D Interactive Obsidian-Style Graph Visualizer
 
-![CodeGraph 3D Interactive Architecture Graph](screenshot_graph.jpg)
-
+![CodeGraph 3D Interactive Architecture Graph]
+<img width="1311" height="673" alt="screenshot_graph" src="https://github.com/user-attachments/assets/2e441070-c61d-48f7-85c8-062962ba5857" />
 ---
 
 ## 🚀 Overview
