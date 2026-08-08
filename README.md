@@ -12,7 +12,6 @@
 
 ## 🖼️ Preview: 3D Interactive Obsidian-Style Graph Visualizer
 
-![CodeGraph 3D Interactive Architecture Graph]
 <img width="1311" height="673" alt="screenshot_graph" src="https://github.com/user-attachments/assets/2e441070-c61d-48f7-85c8-062962ba5857" />
 ---
 
