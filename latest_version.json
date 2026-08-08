@@ -1,6 +1,12 @@
 {
-  "version": "v1.0.0",
-  "release_date": "2026-08-07",
-  "changelog": "- Cải tiến kiến trúc TokenVector siêu tốc\n- Tích hợp License JetBrains\n- Tối ưu hóa dung lượng đóng gói",
-  "download_url": "https://codegraph.lemonsqueezy.com"
+  "version": "v2.0.0",                                                                    
+      "release_date": "2026-08-08",                                                           
+      "changelog": "- Nâng cấp toàn bộ hệ thống sang Kiến trúc TokenVector Engine (.tkv) siêu 
+  tốc\n- Tự động kích hoạt 30 ngày dùng thử miễn phí và hỗ trợ bộ 100 Offline Master Keys\n-  
+  Tích hợp giao thức MCP Server cho Cursor, Antigravity, Windsurf, Claude Desktop & VSCode\n- 
+  Bổ sung công cụ Đánh giá Ảnh hưởng ngược 2 tầng (analyze_impact) và Đóng gói Ngữ cảnh phẫu  
+  thuật (get_optimal_context)\n- Tự động đóng gói giao diện đồ thị HTML tương tác 3D chuẩn    
+  Obsidian Graph View",                                                                       
+      "download_url": "https://codegraph.lemonsqueezy.com/checkout/buy/701442e2-6153-408a-    
+  9d39-1eb1456538a3"           
 }
