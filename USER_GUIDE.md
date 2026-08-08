@@ -30,8 +30,9 @@ CodeGraph v2.0 hỗ trợ đầy đủ 3 chế độ bản quyền linh hoạt:
 1. **Chế Độ Dùng Thử 30 Ngày Miễn Phí (30-Day Free Trial):**
    - Khi chạy ứng dụng lần đầu tiên mà chưa có License Key, hệ thống **tự động kích hoạt 30 ngày dùng thử miễn phí (`CG-FREE-TRIAL-30DAYS`)**.
    - Dữ liệu dùng thử được lưu bảo mật tại `%APPDATA%\CodeGraph\license_state.json`.
+  👉 **[Tải về](https://github.com/nguyenhungtran18/CodeGraph-Release/releases/download/v2.0.0/CodeGraph2.0_Release.zip)**
 2. **Khóa Thương Mại Mua Trực Tuyến:** Tự động kích hoạt trực tuyến qua cổng Lemon Squeezy API khi mua hàng tại:
-   👉 **https://codegraph.lemonsqueezy.com/checkout/buy/701442e2-6153-408a-9d39-1eb1456538a3**
+   👉 **[Mua License Key Chính Thức trên Lemon Squeezy](https://codegraph.lemonsqueezy.com/checkout/buy/701442e2-6153-408a-9d39-1eb1456538a3)**
 3. **Kích Hoạt Offline Master Keys:**
    - Nếu có Marter Key hãy Nhập mã Master Key (Ví dụ: `CG-MASTER-KEY-001-***`).
    - Sử dụng công cụ `2.code/master_key_manager.exe`
@@ -49,8 +50,8 @@ CodeGraph v2.0 hỗ trợ đầy đủ 3 chế độ bản quyền linh hoạt:
    - Sinh đồ thị liên kết `import` và cuộc gọi hàm/lớp (`calls`).
    - Phân tích siêu dữ liệu (Metadata) & cấu trúc tầng kiến trúc.
    - Kiểm duyệt toàn vẹn đồ thị (Architectural Reviewer).
-   - Đóng gói giao diện HTML 3D tại **`1.UI/GraphView/graph_visualization.html`**.
-3. Mở file `1.UI/GraphView/graph_visualization.html` bằng trình duyệt web để xem trực tiếp sơ đồ vật lý tương tác 3D.
+   - Đóng gói giao diện HTML 3D tại **`~/GraphView/graph_visualization.html`**.
+3. Mở file `~/GraphView/graph_visualization.html` bằng trình duyệt web để xem trực tiếp sơ đồ vật lý tương tác 3D.
 
 ---
 
