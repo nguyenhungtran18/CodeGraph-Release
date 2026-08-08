@@ -1,4 +1,3 @@
-<img width="917" height="471" alt="screenshot_graph" src="https://github.com/user-attachments/assets/b78b9c3b-7966-4652-afed-96a1330aef4b" />
 <div align="center">
   <h1>CodeGraph v2.0 (TokenVector Architecture)</h1>
   <p><em>The Ultimate Deterministic Architecture & Context Engine for AI Assistants (Cursor, Antigravity, Windsurf, Claude Desktop, VSCode)</em></p>
