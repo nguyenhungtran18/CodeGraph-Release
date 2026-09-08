@@ -74,7 +74,7 @@ By providing 100% deterministic structural links (function calls, class inherita
        }
      }
    }
-For comprehensive usage instructions, refer to USER_GUIDE.md.
+4. For comprehensive usage instructions, refer to USER_GUIDE.md.
 
 ---
 
