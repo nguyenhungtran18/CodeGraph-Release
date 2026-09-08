@@ -1,3 +1,6 @@
+<p>
+    <a href="README.md">English</a> | <strong>Tiếng Việt</strong>
+  </p>
 <div align="center">
   <h1>CodeGraph v2.0 (TokenVector Architecture)</h1>
   <p><em>The Ultimate Deterministic Architecture & Context Engine for AI Assistants (Cursor, Antigravity, Windsurf, Claude Desktop, VSCode)</em></p>
